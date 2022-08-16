@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import styles from './contact-list.module.css';
 
 const ContactList = ({ removeContact, contacts }) => {
@@ -13,3 +15,14 @@ const ContactList = ({ removeContact, contacts }) => {
 };
 
 export default ContactList;
+
+ContactList.propTypes = {
+  removeContact: PropTypes.func.isRequired,
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    }).isRequired
+  ),
+};
